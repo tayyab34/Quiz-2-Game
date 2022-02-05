@@ -4,9 +4,8 @@ using UnityEngine;
 //Force on Gun1
 public class Gun1Movement : MonoBehaviour
 {
-    private Gun1 Gun1;
     private Rigidbody Gun1Rb;
-    private float force=100f;
+    private float force=50f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +17,13 @@ public class Gun1Movement : MonoBehaviour
     {
 
         Gun1Rb.AddForce(force * Vector3.forward);
+    }
+    //bullet destroy
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

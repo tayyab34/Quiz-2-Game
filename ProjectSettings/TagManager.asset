@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Wall
+  - Gun1
+  - Gun2
+  - Gun3
+  - Gun1bullet
+  - Gun2bullet
+  - Gun3bullet
   layers:
   - Default
   - TransparentFX

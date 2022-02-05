@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     //spawning enemy
     private void Spawn()
     {
-        Vector3 position = new Vector3(Random.Range(-xRange, xRange), 0, zrange);
+        Vector3 position = new Vector3(Random.Range(-xRange, xRange), transform.position.y+0.84f, zrange);
         Instantiate(enemyprefab, position, enemyprefab.transform.rotation);
     }
 }
