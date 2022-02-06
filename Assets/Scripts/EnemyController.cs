@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     private int damage2 = 80;
     private int damage3 = 120;
     private float bound = 5f;
-    int enemykill = 0;
     int health = 100;
     // Start is called before the first frame update
     void Start()
@@ -37,16 +36,16 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Wall"))
         {
+            Player.GetComponent<Player>().enemykill++;
             Destroy(gameObject);
-            enemykill++;
         }
         else if(collision.gameObject.CompareTag("Gun1bullet"))
         {
             health -= damage1;
             if (health < 1)
             {
+                Player.GetComponent<Player>().enemykill++;
                 Destroy(gameObject);
-                enemykill++;
             }
         }
         else if (collision.gameObject.CompareTag("Gun2bullet"))
@@ -54,8 +53,8 @@ public class EnemyController : MonoBehaviour
             health -= damage2;
             if (health < 1)
             {
+                Player.GetComponent<Player>().enemykill++;
                 Destroy(gameObject);
-                enemykill++;
             }
         }
         else if (collision.gameObject.CompareTag("Gun3bullet"))
@@ -63,23 +62,11 @@ public class EnemyController : MonoBehaviour
             health -= damage3;
             if (health < 1)
             {
+                Player.GetComponent<Player>().enemykill++;
                 Destroy(gameObject);
-                enemykill++;
             }
         }
 
     }
-    //60 seconds timer
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(60);
-        if (enemykill >= 15)
-        {
-            Debug.Log("Player Win");
-        }
-        else
-        {
-            Debug.Log("Player Lose");
-        }
-    }
+   
 }

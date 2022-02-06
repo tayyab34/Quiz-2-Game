@@ -9,12 +9,14 @@ public class Player : MonoBehaviour
     private bool isgun0=true;
     private bool isgun1 = false;
     private bool isgun2 = false;
+    public int enemykill = 0;
     private float speed = 5f;
     int health = 100;
     private Rigidbody playerRb;
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        StartCoroutine(Timer());
     }
     void Update()
     {
@@ -77,6 +79,18 @@ public class Player : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+    }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(60);
+        if (enemykill >= 15)
+        {
+            Debug.Log("Player Win");
+        }
+        else
+        {
+            Debug.Log("Player Lose");
         }
     }
 }
