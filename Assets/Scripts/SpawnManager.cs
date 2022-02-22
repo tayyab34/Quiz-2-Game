@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     private float zrange=7;
     public GameObject enemyprefab;
     private float StartDelay = 1;
-    private float delay = 4;
+    private float delay = 2;
     // Start is called before the first frame update
     void Start()
     {
